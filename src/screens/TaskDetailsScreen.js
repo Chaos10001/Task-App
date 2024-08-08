@@ -11,7 +11,7 @@ const TaskDetailsScreen = () => {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const response = await fetch("http://192.168.43.176:3000/api/v1/tasks");
+        const response = await fetch(`http://${process.env.API_HOST}:3000/api/v1/tasks`);
         const data = await response.json();
 
         if (response.ok) {
@@ -31,7 +31,7 @@ const TaskDetailsScreen = () => {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `http://192.168.43.176:3000/api/v1/tasks/${id}`,
+        `http://${process.env.API_HOST}:3000/api/v1/tasks/${id}`,
         {
           method: "DELETE",
         }

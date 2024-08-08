@@ -28,16 +28,19 @@ const CreateTaskScreen = ({ navigate }) => {
     }
 
     try {
-      const response = await fetch("http://192.168.43.176:3000/api/v1/tasks", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: task.toString(),
-          completed: false,
-        }),
-      });
+      const response = await fetch(
+        `http://${process.env.API_HOST}:3000/api/v1/tasks`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: task.toString(),
+            completed: false,
+          }),
+        }
+      );
       const data = await response.json();
       console.log("Response:", response);
       console.log("Data:", data);

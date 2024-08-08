@@ -25,7 +25,7 @@ const EditTaskDetails = ({ route }) => {
     }
     try {
       const response = await fetch(
-        `http://192.168.43.176:3000/api/v1/tasks/${id}`,
+        `http://${process.env.API_HOST}:3000/api/v1/tasks/${id}`,
         {
           method: "PATCH",
           headers: {
